@@ -67,7 +67,7 @@ app.get('/weather',(req,res) => {
 
     geocode(req.query.address,(error,{latitude,longitude,location}={})=>{
         if(error){
-            res.send({error})
+            return res.send({error})
         }
 
         forecast(latitude,longitude,(error,forecastData) => {
@@ -96,7 +96,7 @@ app.get('/products',(req,res) =>{
 
     if(!req.query.search){
         return res.send({
-            error:'You must provide search'
+            error:'You must provide search term'
         })
     }
 
